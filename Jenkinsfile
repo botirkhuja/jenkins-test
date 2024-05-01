@@ -1,22 +1,11 @@
 pipeline {
     agent {
-        dockerfile true
+        docker { image 'node:20.11.1-alpine3.19' }
     }
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                sh 'node --version'
-            }
-        }
         stage('Test') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh 'node --version'
             }
         }
     }
